@@ -1,0 +1,11 @@
+Server:
+  port: 8888
+Spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://39.105.72.22/bssql?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: cenjinde158...
+mybatis:
+  classpath: com/zzy/mapper/*Mapper.xml

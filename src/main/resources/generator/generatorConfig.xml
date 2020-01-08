@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <properties resource="generator/config.properties"/>
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.user}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+        <javaModelGenerator targetPackage="${modelPackage}" targetProject="${project}"/>
+        <sqlMapGenerator targetPackage="${xmlPackage}" targetProject="${resource}"/>
+        <javaClientGenerator targetPackage="${mapperPackage}" targetProject="${project}" type="XMLMAPPER"/>
+
+        <!--  <table tableName="sf_pv_cost_hec_mapping">
+              <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+          </table>-->
+        <table tableName="vd_build" domainObjectName="VdBuild"></table>
+        <table tableName="vd_cls" domainObjectName="VdCls"></table>
+        <table tableName="vd_dor" domainObjectName="VdDor"></table>
+        <table tableName="vd_fix" domainObjectName="VdFix"></table>
+        <table tableName="vd_los" domainObjectName="VdLos"></table>
+        <table tableName="vd_role" domainObjectName="VdRole"></table>
+        <table tableName="vd_stu" domainObjectName="VdStu"></table>
+    </context>
+</generatorConfiguration>
