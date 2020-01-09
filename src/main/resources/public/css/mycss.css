@@ -1,0 +1,12 @@
+.container-zzy{
+    width: 1080px;
+    background-color: blue;
+    height: auto;
+}
+
+.left-nav {
+    width: 300px;
+    background-color: red;
+    height: auto;
+    float: left;
+}

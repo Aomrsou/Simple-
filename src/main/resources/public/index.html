@@ -3,32 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<!--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="/bs/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/bs/css/mycss.css">
+    <script src="/bs/js/layui.js"></script>
     <script src="/bs/js/vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/bs/js/vue-router.js"></script>
+    <script src="/bs/js/app.js"></script>
+
 </head>
-<body>
-    <div id="fi">
-    你好，{{ msg }}
-        <button @click="send">发送ajax请求</button>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin" id="app">
+    <div class="layui-header">
+        <div class="layui-logo">毕设</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="">控制台</a></li>
+            <li class="layui-nav-item"><a href="">商品管理</a></li>
+            <li class="layui-nav-item"><a href="">用户</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">其它系统</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="">消息管理</a></dd>
+                    <dd><a href="">授权管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                    贤心
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">Quit</a></li>
+        </ul>
     </div>
-    <script>
-        new Vue({
-            el: '#fi',
-            data: {
-                msg: '张子扬'
-            },
-            methods: {
-                send() {
-                    axios({
-                        method: 'get',
-                        url: 'http://localhost:8888/bs/stu/list'
-                    }).then(function (resp) {
-                        console.log(resp.data);
-                    });
-                }
-            }
-        })
-    </script>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <router-link to="/">首页</router-link>
+                </li>
+                <li class="layui-nav-item">
+                    <router-link to="/about">关于我们</router-link>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <router-view></router-view>
+        </div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
 </body>
 </html>
