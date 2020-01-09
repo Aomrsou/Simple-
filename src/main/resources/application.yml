@@ -1,5 +1,7 @@
 Server:
   port: 8888
+  servlet:
+    context-path: /bs
 Spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -7,5 +9,10 @@ Spring:
     url: jdbc:mysql://39.105.72.22/bssql?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: cenjinde158...
+  thymeleaf:
+    prefix: classpath:/public/
+    cache: false
+    suffix: .html
+    encoding: utf-8
 mybatis:
   classpath: com/zzy/mapper/*Mapper.xml
