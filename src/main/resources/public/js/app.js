@@ -1,4 +1,15 @@
 window.onload = function () {
+    var search_component = {
+        template: `
+              <div class="layui-form-item">
+                <label class="layui-form-label">输入框</label>
+                <div class="layui-input-block">
+                  <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                </div>
+              </div>
+            `,
+    }
+
     var routes = [
         {
             path:'/',
@@ -7,7 +18,6 @@ window.onload = function () {
                 <div>
                     <h1>首页</h1>
                 </div>
-                <script>console.log("g")</script>
                 `,
             },
         },
@@ -42,5 +52,13 @@ window.onload = function () {
         el: '#app',
         router: router,
     });
+
+    // new Vue({
+    //     el: "#stu",
+    //     components: {
+    //         search: search_component,
+    //     }
+    // });
+
 
 }
