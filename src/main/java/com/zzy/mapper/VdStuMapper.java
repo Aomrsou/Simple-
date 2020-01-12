@@ -45,4 +45,6 @@ public interface VdStuMapper {
      * @mbg.generated Wed Jan 08 14:27:59 CST 2020
      */
     int updateByPrimaryKey(VdStu record);
+
+    VdStu checkUser(String username, String password);
 }

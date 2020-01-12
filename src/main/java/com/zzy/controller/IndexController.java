@@ -17,7 +17,7 @@ public class IndexController {
     @CrossOrigin
     @RequestMapping("/login")
     public Result hello(@RequestBody RoleVO roleVo){
-        boolean check = roleService.check(roleVo.getUserName(), roleVo.getPassWord());
+        boolean check = roleService.check(roleVo.getUsername(), roleVo.getPassword());
         Result result = new Result();
         if (check) {
             result.setCode(200);

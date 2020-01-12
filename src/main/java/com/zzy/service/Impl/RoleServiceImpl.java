@@ -15,7 +15,11 @@ public class RoleServiceImpl implements RoleService {
     private VdStuMapper vdStuMapper;
     @Override
     public boolean check(String userName, String passWord) {
-        List<VdStu> vdStus = vdStuMapper.selectAll();
-        return true;
+        VdStu vdStu = vdStuMapper.checkUser(userName, passWord);
+        if(vdStu == null){
+            return false;
+        }else {
+            return true;
+        }
     }
 }
