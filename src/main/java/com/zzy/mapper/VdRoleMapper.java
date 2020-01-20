@@ -46,4 +46,6 @@ public interface VdRoleMapper {
      * @mbg.generated Wed Jan 08 14:27:59 CST 2020
      */
     int updateByPrimaryKey(VdRole record);
+
+    VdRole checkRole(String username, String password);
 }
