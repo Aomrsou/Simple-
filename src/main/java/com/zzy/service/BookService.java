@@ -12,4 +12,6 @@ public interface BookService {
     public void deleteById(int id);
 
     public List<Book> listByCategory(int cid);
+
+    public List<Book> Search(String keywords);
 }
