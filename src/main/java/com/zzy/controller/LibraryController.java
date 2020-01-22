@@ -5,8 +5,14 @@ import com.zzy.model.po.Search;
 import com.zzy.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.print.attribute.standard.Fidelity;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class LibraryController {
@@ -50,6 +56,27 @@ public class LibraryController {
             return bookService.list();
         } else {
             return bookService.Search(s.getKeywords());
+        }
+    }
+
+    @CrossOrigin
+    @PostMapping("/covers")
+    public String coversUpload(MultipartFile file) throws Exception {
+        File files = new File("");
+        String folder = files.getCanonicalPath() + "/src/main/resources/static/img";
+        File imageFoler = new File(folder);
+        File f = new File(imageFoler, UUID.randomUUID().toString() +
+                file.getOriginalFilename().substring(file.getOriginalFilename().length()-4));
+        if (!f.getParentFile().exists()) {
+            f.getParentFile().mkdirs();
+        }
+        try {
+            file.transferTo(f);
+            String imgURL = "http://localhost:8888/bs/img/" + f.getName();
+            return imgURL;
+        }catch (IOException e){
+            e.printStackTrace();
+            return "";
         }
     }
 }
