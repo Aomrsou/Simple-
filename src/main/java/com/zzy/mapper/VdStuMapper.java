@@ -1,6 +1,8 @@
 package com.zzy.mapper;
 
+import com.zzy.model.dto.StudentDTO;
 import com.zzy.model.po.VdStu;
+import com.zzy.model.vo.StudentVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -47,4 +49,6 @@ public interface VdStuMapper {
     int updateByPrimaryKey(VdStu record);
 
     VdStu checkUser(String username, String password);
+
+    List<StudentDTO> selectAllDTO(StudentVO vo);
 }
