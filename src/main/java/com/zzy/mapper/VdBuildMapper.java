@@ -1,6 +1,8 @@
 package com.zzy.mapper;
 
+import com.zzy.model.dto.BuildDTO;
 import com.zzy.model.po.VdBuild;
+import com.zzy.model.vo.BuildVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -46,4 +48,7 @@ public interface VdBuildMapper {
      * @mbg.generated Wed Jan 08 14:27:59 CST 2020
      */
     int updateByPrimaryKey(VdBuild record);
+
+    List<BuildDTO> selectByCondition(BuildVO vo);
+    List<BuildDTO> buildSelect(BuildVO vo);
 }

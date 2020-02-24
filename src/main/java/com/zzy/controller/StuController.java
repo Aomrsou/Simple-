@@ -26,4 +26,13 @@ public class StuController {
         result.setData(studentDTOS);
         return JSON.toJSONString(result);
     }
+    @CrossOrigin
+    @GetMapping("/getlist")
+    public String getList(StudentVO vo){
+        List<StudentDTO> studentDTOS = studentService.list(vo);
+        Result result = new Result();
+        result.setCode(200);
+        result.setData(studentDTOS);
+        return JSON.toJSONString(result);
+    }
 }
