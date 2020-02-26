@@ -51,4 +51,13 @@ public class DorController {
         Result result = new Result();
         return "ues";
     }
+    @CrossOrigin
+    @RequestMapping("/delete")
+    public String delete(@RequestBody DorVO vo) {
+        dormitoryService.delete(vo);
+        Result result = new Result();
+        result.setCode(200);
+        String s = JSON.toJSONString(result);
+        return s;
+    }
 }

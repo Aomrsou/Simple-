@@ -33,9 +33,6 @@ public class DormitoryServiceImpl implements DormitoryService {
 
     @Override
     public Boolean delete(DorVO vo) {
-        if (vo.getNownum() != 0) {
-            return false;
-        }
         vdDorMapper.deleteByPrimaryKey(vo.getDid());
         return true;
     }

@@ -22,7 +22,7 @@
           This element was generated on Wed Jan 08 14:27:59 CST 2020.
         -->
         delete from vd_dor
-        where id = #{id,jdbcType=INTEGER}
+        where id = #{did,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.zzy.model.vo.DorVO">
         <!--

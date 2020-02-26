@@ -18,4 +18,19 @@ public class StudentServiceImpl implements StudentService {
         List<StudentDTO> studentDTOS = stuMapper.selectAllDTO(vo);
         return studentDTOS;
     }
+
+    @Override
+    public void add(StudentVO vo) {
+        stuMapper.insert(vo);
+    }
+
+    @Override
+    public void delete(StudentVO vo) {
+        stuMapper.deleteByPrimaryKey(vo.getId());
+    }
+
+    @Override
+    public void update(StudentVO vo) {
+        stuMapper.updateByPrimaryKey(vo);
+    }
 }
