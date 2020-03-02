@@ -78,11 +78,25 @@
         from vd_stu
     </select>
 
-    <select id="checkUser" resultMap="BaseResultMap">
-    select id, num, name, password, sex, clsid, dorid, flag
-    from vd_stu
-    where name = #{username, jdbcType=VARCHAR}
-    and password = #{password,jdbcType=VARCHAR}
+    <select id="checkUser" resultType="com.zzy.model.dto.StudentDTO">
+        SELECT
+        s.id,
+        d.id as did,
+        c.id as cid,
+        s.num,
+        s.name,
+        s.sex,
+        c.name as cls,
+        d.dornum as dor,
+        CONCAT(b.`name`,b.`no`,'号楼') as buildName,
+        s.flag
+        FROM
+        vd_stu s,vd_cls c, vd_dor d, vd_build b
+        where s.clsid = c.id
+        and s.dorid = d.id
+        and d.bid = b.id
+        and s.name = #{username, jdbcType=VARCHAR}
+        and s.password = #{password,jdbcType=VARCHAR}
   </select>
 
     <select id="selectAllDTO" resultType="com.zzy.model.dto.StudentDTO" parameterType="com.zzy.model.vo.StudentVO">
@@ -107,6 +121,9 @@
         </if>
         <if test="name != null and name != ''">
             and s.name like concat('%', #{name,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="password != null and password != ''">
+            and s.password = #{password,jdbcType=VARCHAR}
         </if>
         <if test="sex != null and sex != ''">
             and s.sex = #{sex,jdbcType=VARCHAR}

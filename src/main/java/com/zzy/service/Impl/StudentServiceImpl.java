@@ -33,4 +33,10 @@ public class StudentServiceImpl implements StudentService {
     public void update(StudentVO vo) {
         stuMapper.updateByPrimaryKey(vo);
     }
+
+    @Override
+    public List<StudentDTO> checkStudent(StudentVO vo) {
+        List<StudentDTO> studentDTOS = stuMapper.checkUser(vo.getName(), vo.getPassword());
+        return studentDTOS;
+    }
 }

@@ -13,4 +13,6 @@ public interface StudentService {
     void delete(StudentVO vo);
 
     void update(StudentVO vo);
+
+    List<StudentDTO> checkStudent(StudentVO vo);
 }
