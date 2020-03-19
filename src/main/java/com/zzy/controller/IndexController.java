@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -29,6 +30,11 @@ public class IndexController {
         boolean check = roleService.check(roleVo.getName(), roleVo.getPassword());
         Result result = new Result();
         if (check) {
+            List<StudentDTO> list = new ArrayList<>();
+            StudentDTO dto = new StudentDTO();
+            dto.setName(roleVo.getName());
+            list.add(dto);
+            result.setData(list);
             result.setCode(200);
         }else {
             result.setCode(404);
