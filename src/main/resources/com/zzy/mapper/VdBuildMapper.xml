@@ -57,6 +57,7 @@
     -->
     select id, name, no
     from vd_build
+    order by name
   </select>
 
   <select id="selectByCondition" resultType="com.zzy.model.dto.BuildDTO" parameterType="com.zzy.model.vo.BuildVO">

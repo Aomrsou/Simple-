@@ -43,22 +43,23 @@
           This element was generated on Wed Jan 08 14:27:59 CST 2020.
         -->
         update vd_dor
-        set
-        <if test="floor != null and floor != ''">
-            floor = #{floor,jdbcType=INTEGER},
-        </if>
-        <if test="num != null and num != ''">
-        num = #{num,jdbcType=VARCHAR},
-        </if>
-        <if test="dornum != null and dornum != ''">
-        dornum = #{dornum,jdbcType=INTEGER},
-        </if>
-        <if test="maxnum != null and maxnum != ''">
-        maxnum = #{maxnum,jdbcType=INTEGER},
-        </if>
-        <if test="heal != null and heal != ''">
-        heal = #{heal,jdbcType=INTEGER}
-        </if>
+        <set>
+            <if test="floor != null and floor != ''">
+                floor = #{floor,jdbcType=INTEGER},
+            </if>
+            <if test="num != null and num != ''">
+            num = #{num,jdbcType=VARCHAR},
+            </if>
+            <if test="dornum != null and dornum != ''">
+            dornum = #{dornum,jdbcType=INTEGER},
+            </if>
+            <if test="maxnum != null and maxnum != ''">
+            maxnum = #{maxnum,jdbcType=INTEGER},
+            </if>
+            <if test="heal != null and heal != ''">
+            heal = #{heal,jdbcType=INTEGER},
+            </if>
+        </set>
         where id = #{did,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -120,6 +121,7 @@
         from vd_stu
         GROUP BY dorid) now
         on first.did = now.dorid
+        order by buildName,dornum
     </select>
 
     <delete id="deleteByBid" parameterType="java.lang.Integer">

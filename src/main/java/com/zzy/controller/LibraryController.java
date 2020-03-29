@@ -72,7 +72,7 @@ public class LibraryController {
         }
         try {
             file.transferTo(f);
-            String imgURL = "http://39.105.72.22:8888/bs/img/" + f.getName();
+            String imgURL = "http://localhost:8888/bs/img/" + f.getName();
             return imgURL;
         }catch (IOException e){
             e.printStackTrace();
