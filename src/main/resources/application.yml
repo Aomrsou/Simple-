@@ -19,5 +19,19 @@ Spring:
     username: 1522017075@qq.com
     password: sobrstajvjrnhfbd
     default-encoding: UTF-8
+#    port: 587
+#    #配置阿里云服务器发送邮件
+#    properties:
+#      mail:
+#        smtp:
+#          ssl:
+#            trust: smtp.exmail.qq.com
+#          socketFactory:
+#            class: javax.net.ssl.SSLSocketFactory
+#            port: 587
+#          auth: true
+#          starttls:
+#            enable: true
+#            required: true
 mybatis:
   classpath: com/zzy/mapper/*Mapper.xml
