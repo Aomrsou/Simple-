@@ -4,13 +4,12 @@ import com.zzy.model.po.Book;
 import com.zzy.model.po.Search;
 import com.zzy.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.print.attribute.standard.Fidelity;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.UUID;
 
@@ -62,9 +61,15 @@ public class LibraryController {
     @CrossOrigin
     @PostMapping("/covers")
     public String coversUpload(MultipartFile file) throws Exception {
-        File files = new File("");
-        String folder = files.getCanonicalPath() + "/src/main/resources/static/img";
+        File path = new File(ResourceUtils.getURL("classpath:").getPath());
+        if(!path.exists()) {
+            path = new File("");
+        }
+        String folder = path.getAbsolutePath() + "\\static\\upload\\";
         File imageFoler = new File(folder);
+        if(!imageFoler.exists()) {
+            imageFoler.mkdirs();
+        }
         File f = new File(imageFoler, UUID.randomUUID().toString() +
                 file.getOriginalFilename().substring(file.getOriginalFilename().length()-4));
         if (!f.getParentFile().exists()) {
@@ -72,7 +77,7 @@ public class LibraryController {
         }
         try {
             file.transferTo(f);
-            String imgURL = "http://localhost:8888/bs/img/" + f.getName();
+            String imgURL = "http://39.105.72.22:8888/bs/upload/" + f.getName();
             return imgURL;
         }catch (IOException e){
             e.printStackTrace();

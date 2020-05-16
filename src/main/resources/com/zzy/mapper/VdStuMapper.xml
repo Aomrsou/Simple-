@@ -137,5 +137,6 @@
         <if test="buildName != null and buildName !=''">
             and b.id = #{buildName}
         </if>
+        order by buildName,dor
     </select>
 </mapper>

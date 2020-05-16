@@ -14,5 +14,10 @@ Spring:
     cache: false
     suffix: .html
     encoding: utf-8
+  mail:
+    host: smtp.qq.com
+    username: 1522017075@qq.com
+    password: sobrstajvjrnhfbd
+    default-encoding: UTF-8
 mybatis:
   classpath: com/zzy/mapper/*Mapper.xml

@@ -5,6 +5,7 @@ import com.zzy.mapper.VdLosMapper;
 import com.zzy.model.dto.LosAndFixDTO;
 import com.zzy.model.vo.LosAndFixVO;
 import com.zzy.service.LosAndFixService;
+import com.zzy.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,8 @@ public class LosAndFixServiceImpl implements LosAndFixService {
     private VdLosMapper vdLosMapper;
     @Autowired
     private VdFixMapper vdFixMapper;
+    @Autowired
+    private MailService mailServicel;
     @Override
     public List<LosAndFixDTO> listLos(LosAndFixVO vo) {
         List<LosAndFixDTO> losAndFixDTOS = vdLosMapper.selectAll(vo);
@@ -49,6 +52,8 @@ public class LosAndFixServiceImpl implements LosAndFixService {
     @Override
     public Boolean addFix(LosAndFixVO vo) {
         int insert = vdFixMapper.insert(vo);
+        mailServicel.simpleSendMail("1522017075@qq.com","您管理的宿舍有新的报修反馈!",
+                "详情为：" + vo.getTitle() + vo.getContent());
         return insert == 0 ? false : true;
     }
 
