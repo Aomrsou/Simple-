@@ -11,8 +11,8 @@ import javax.sql.DataSource;
 @SpringBootApplication
 public class ZzyApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ZzyApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ZzyApplication.class, args);
+    }
 
 }

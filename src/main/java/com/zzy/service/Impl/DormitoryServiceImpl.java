@@ -13,6 +13,7 @@ import java.util.List;
 public class DormitoryServiceImpl implements DormitoryService {
     @Autowired
     private VdDorMapper vdDorMapper;
+
     @Override
     public List<DorDTO> list(DorVO vo) {
         List<DorDTO> dorDTOS = vdDorMapper.selectAllDormitory(vo);

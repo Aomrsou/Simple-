@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "book")
-@JsonIgnoreProperties({"handler","hibernateLazyInitializer"})
+@JsonIgnoreProperties({"handler", "hibernateLazyInitializer"})
 @Data
 public class Book {
     @Id
@@ -16,7 +16,7 @@ public class Book {
     int id;
 
     @ManyToOne
-    @JoinColumn(name="cid")
+    @JoinColumn(name = "cid")
     private Category category;
 
     String cover;

@@ -97,7 +97,7 @@
         and d.bid = b.id
         and s.name = #{username, jdbcType=VARCHAR}
         and s.password = #{password,jdbcType=VARCHAR}
-  </select>
+    </select>
 
     <select id="selectAllDTO" resultType="com.zzy.model.dto.StudentDTO" parameterType="com.zzy.model.vo.StudentVO">
         SELECT

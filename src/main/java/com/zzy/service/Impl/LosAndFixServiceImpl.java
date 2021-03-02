@@ -19,6 +19,7 @@ public class LosAndFixServiceImpl implements LosAndFixService {
     private VdFixMapper vdFixMapper;
     @Autowired
     private MailService mailServicel;
+
     @Override
     public List<LosAndFixDTO> listLos(LosAndFixVO vo) {
         List<LosAndFixDTO> losAndFixDTOS = vdLosMapper.selectAll(vo);
@@ -52,7 +53,7 @@ public class LosAndFixServiceImpl implements LosAndFixService {
     @Override
     public Boolean addFix(LosAndFixVO vo) {
         int insert = vdFixMapper.insert(vo);
-        mailServicel.simpleSendMail("1522017075@qq.com","您管理的宿舍有新的报修反馈!",
+        mailServicel.simpleSendMail("1522017075@qq.com", "您管理的宿舍有新的报修反馈!",
                 "详情为：" + vo.getTitle() + vo.getContent());
         return insert == 0 ? false : true;
     }

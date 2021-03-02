@@ -13,6 +13,7 @@ import java.util.List;
 public class ClassServiceImpl implements ClassService {
     @Autowired
     private VdClsMapper vdClsMapper;
+
     @Override
     public List<ClassDTO> list(ClassVO vo) {
         List<ClassDTO> classDTOS = vdClsMapper.selectAll(vo);

@@ -66,9 +66,9 @@
 
 
     <select id="checkRole" resultMap="BaseResultMap">
-      select id, username, password, level
-      from vd_role
-      where username = #{username, jdbcType=VARCHAR}
-      and password = #{password,jdbcType=VARCHAR}
-  </select>
+        select id, username, password, level
+        from vd_role
+        where username = #{username, jdbcType=VARCHAR}
+        and password = #{password,jdbcType=VARCHAR}
+    </select>
 </mapper>

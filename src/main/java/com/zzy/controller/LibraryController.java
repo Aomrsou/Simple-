@@ -62,16 +62,16 @@ public class LibraryController {
     @PostMapping("/covers")
     public String coversUpload(MultipartFile file) throws Exception {
         File path = new File(ResourceUtils.getURL("classpath:").getPath());
-        if(!path.exists()) {
+        if (!path.exists()) {
             path = new File("");
         }
         String folder = path.getAbsolutePath() + "\\static\\upload\\";
         File imageFoler = new File(folder);
-        if(!imageFoler.exists()) {
+        if (!imageFoler.exists()) {
             imageFoler.mkdirs();
         }
         File f = new File(imageFoler, UUID.randomUUID().toString() +
-                file.getOriginalFilename().substring(file.getOriginalFilename().length()-4));
+                file.getOriginalFilename().substring(file.getOriginalFilename().length() - 4));
         if (!f.getParentFile().exists()) {
             f.getParentFile().mkdirs();
         }
@@ -79,7 +79,7 @@ public class LibraryController {
             file.transferTo(f);
             String imgURL = "http://39.105.72.22:8888/bs/upload/" + f.getName();
             return imgURL;
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
             return "";
         }

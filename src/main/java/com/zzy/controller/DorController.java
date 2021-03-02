@@ -16,9 +16,10 @@ public class DorController {
 
     @Autowired
     private DormitoryService dormitoryService;
+
     @CrossOrigin
     @RequestMapping("/list")
-    public String list(@RequestBody DorVO vo){
+    public String list(@RequestBody DorVO vo) {
         List<DorDTO> list = dormitoryService.list(vo);
         Result result = new Result();
         result.setCode(200);
@@ -29,7 +30,7 @@ public class DorController {
 
     @CrossOrigin
     @GetMapping("/getlist")
-    public String getlist(DorVO vo){
+    public String getlist(DorVO vo) {
         List<DorDTO> list = dormitoryService.list(vo);
         Result result = new Result();
         result.setCode(200);
@@ -37,6 +38,7 @@ public class DorController {
         String s = JSON.toJSONString(result);
         return s;
     }
+
     @CrossOrigin
     @RequestMapping("/addOrUpdate")
     public String addOrUpdate(@RequestBody DorVO vo) {
@@ -51,6 +53,7 @@ public class DorController {
         Result result = new Result();
         return "ues";
     }
+
     @CrossOrigin
     @RequestMapping("/delete")
     public String delete(@RequestBody DorVO vo) {

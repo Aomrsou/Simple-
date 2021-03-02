@@ -29,6 +29,7 @@ public class ClassController {
         String s = JSON.toJSONString(result);
         return s;
     }
+
     @CrossOrigin
     @RequestMapping("/getlist")
     public String getlist(ClassVO vo) {
@@ -39,6 +40,7 @@ public class ClassController {
         String s = JSON.toJSONString(result);
         return s;
     }
+
     @CrossOrigin
     @RequestMapping("/update")
     public String updateFlag(@RequestBody ClassVO vo) {

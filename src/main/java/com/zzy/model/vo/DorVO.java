@@ -9,7 +9,7 @@ public class DorVO {
     private String buildName;
     private Integer floor;
     private String num;
-    private Integer  dornum;
+    private Integer dornum;
     private Integer maxnum;
     private Integer nownum;
     private Integer heal;

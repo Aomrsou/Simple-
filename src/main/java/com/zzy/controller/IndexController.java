@@ -26,7 +26,7 @@ public class IndexController {
 
     @CrossOrigin
     @RequestMapping("/login")
-    public String hello(@RequestBody RoleVO roleVo){
+    public String hello(@RequestBody RoleVO roleVo) {
         boolean check = roleService.check(roleVo.getName(), roleVo.getPassword());
         Result result = new Result();
         if (check) {
@@ -36,20 +36,21 @@ public class IndexController {
             list.add(dto);
             result.setData(list);
             result.setCode(200);
-        }else {
+        } else {
             result.setCode(404);
         }
         String s = JSON.toJSONString(result);
         return s;
     }
+
     @CrossOrigin
     @RequestMapping("/loginStudent")
-    public String hi(@RequestBody StudentVO vo){
+    public String hi(@RequestBody StudentVO vo) {
         List<StudentDTO> studentDTOS = studentService.checkStudent(vo);
         Result result = new Result();
         if (CollectionUtils.isEmpty(studentDTOS)) {
             result.setCode(404);
-        }else {
+        } else {
             result.setCode(200);
         }
         result.setData(studentDTOS);

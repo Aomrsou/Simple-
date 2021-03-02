@@ -29,6 +29,7 @@ public class LosAndFixController {
         String s = JSON.toJSONString(result);
         return s;
     }
+
     @CrossOrigin
     @RequestMapping("/listFix")
     public String listFix(@RequestBody LosAndFixVO vo) {
@@ -90,6 +91,7 @@ public class LosAndFixController {
         String s = JSON.toJSONString(result);
         return s;
     }
+
     @CrossOrigin
     @RequestMapping("/deleteFix")
     public String deleteFix(@RequestBody LosAndFixVO vo) {

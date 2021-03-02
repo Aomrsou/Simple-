@@ -50,5 +50,6 @@ public interface VdBuildMapper {
     int updateByPrimaryKey(VdBuild record);
 
     List<BuildDTO> selectByCondition(BuildVO vo);
+
     List<BuildDTO> buildSelect(BuildVO vo);
 }

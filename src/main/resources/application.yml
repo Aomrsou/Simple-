@@ -19,6 +19,10 @@ Spring:
     username: 1522017075@qq.com
     password: sobrstajvjrnhfbd
     default-encoding: UTF-8
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/
 #    port: 587
 #    #配置阿里云服务器发送邮件
 #    properties:

@@ -16,6 +16,7 @@ public interface VdDorMapper {
      * @mbg.generated Wed Jan 08 14:27:59 CST 2020
      */
     int deleteByPrimaryKey(Integer id);
+
     int deleteByBid(Integer id);
 
     /**
@@ -51,5 +52,6 @@ public interface VdDorMapper {
     int updateByPrimaryKey(DorVO record);
 
     List<DorDTO> selectAllDormitory(DorVO vo);
+
     List<DorDTO> selectIsEmpty(DorVO vo);
 }

@@ -23,12 +23,13 @@ public class MailServiceImpl implements MailService {
 
     /**
      * 简单邮件发送
-     * @param to 收件人
+     *
+     * @param to      收件人
      * @param content 内容
-     * @param title 主题
+     * @param title   主题
      */
     @Override
-    public  void simpleSendMail(String to, String title, String content) {
+    public void simpleSendMail(String to, String title, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
         message.setTo(to);

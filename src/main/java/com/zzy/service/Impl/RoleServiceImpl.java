@@ -15,12 +15,13 @@ public class RoleServiceImpl implements RoleService {
 
     @Autowired
     private VdRoleMapper vdRoleMapper;
+
     @Override
     public boolean check(String userName, String passWord) {
         VdRole vdRole = vdRoleMapper.checkRole(userName, passWord);
-        if(vdRole == null){
+        if (vdRole == null) {
             return false;
-        }else {
+        } else {
             return true;
         }
     }

@@ -29,6 +29,7 @@ public class BuildController {
         String s = JSON.toJSONString(result);
         return s;
     }
+
     @CrossOrigin
     @RequestMapping("/getlist")
     public String getlist(BuildVO vo) {
@@ -39,14 +40,15 @@ public class BuildController {
         String s = JSON.toJSONString(result);
         return s;
     }
+
     @CrossOrigin
     @RequestMapping("/addOrUpdate")
     public String addOrUpdate(@RequestBody BuildVO vo) {
         Boolean success = false;
-        if (StringUtils.isEmpty(vo.getBid())){
+        if (StringUtils.isEmpty(vo.getBid())) {
             //insert
             success = buildService.add(vo);
-        }else{
+        } else {
             //update
             success = buildService.update(vo);
         }
@@ -74,6 +76,7 @@ public class BuildController {
         String s = JSON.toJSONString(result);
         return s;
     }
+
     @CrossOrigin
     @GetMapping("/buildSelect")
     public String buildSelect(BuildVO vo) {

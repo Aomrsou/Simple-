@@ -22,6 +22,7 @@ public class BuildServiceImpl implements BuildService {
     private VdBuildMapper vdBuildMapper;
     @Autowired
     private VdDorMapper vdDorMapper;
+
     @Override
     public List<BuildDTO> list(BuildVO vo) {
         List<BuildDTO> buildDTOS = vdBuildMapper.selectByCondition(vo);
@@ -53,7 +54,7 @@ public class BuildServiceImpl implements BuildService {
         DorVO dorVO = new DorVO();
         dorVO.setBid(vo.getBid());
         List<DorDTO> dorDTOS = vdDorMapper.selectIsEmpty(dorVO);
-        if (CollectionUtils.isEmpty(dorDTOS)){
+        if (CollectionUtils.isEmpty(dorDTOS)) {
             vdDorMapper.deleteByBid(vo.getBid());
             vdBuildMapper.deleteByPrimaryKey(vo.getBid());
         }
