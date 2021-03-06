@@ -2,11 +2,17 @@ package com.zzy.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.zzy.mapper.VdStudentFixMapper;
+import com.zzy.model.dto.VdStudentFixDTO;
+import com.zzy.model.po.VdStudentFixExample;
 import com.zzy.model.result.Result;
+import com.zzy.model.vo.VdStudentFixVO;
+import com.zzy.service.StudentFixService;
 import com.zzy.service.UpLoadService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,10 +25,55 @@ import java.util.List;
 public class StudentFixController {
 
     @Autowired
-    private VdStudentFixMapper vdStudentFixMapper;
+    private StudentFixService studentFixService;
+
     @Autowired
     private UpLoadService upLoadService;
 
+    @CrossOrigin
+    @RequestMapping("/insert")
+    public String insertFix(@RequestBody VdStudentFixVO vo){
+        int insert = studentFixService.insert(vo);
+        Result result = new Result();
+        if(insert == 1){
+            result.setCode(200);
+        }else{
+            result.setCode(404);
+        }
+        return JSON.toJSONString(result);
+    }
+    @CrossOrigin
+    @RequestMapping("/update")
+    public String updateFix(@RequestBody VdStudentFixVO vo){
+        int update = studentFixService.updateByPrimaryKeySelective(vo);
+        Result result = new Result();
+        if(update == 1){
+            result.setCode(200);
+        }else{
+            result.setCode(404);
+        }
+        return JSON.toJSONString(result);
+    }
+    @CrossOrigin
+    @RequestMapping("/list")
+    public String listFix(@RequestBody VdStudentFixVO vo){
+        VdStudentFixExample example = new VdStudentFixExample();
+        VdStudentFixExample.Criteria criteria = example.createCriteria();
+        if(vo.getDorid() != null){
+            criteria.andDoridEqualTo(vo.getDorid());
+        } else if (vo.getStuid() != null){
+            criteria.andStuidEqualTo(vo.getStuid());
+        }
+        List<VdStudentFixDTO> vdStudentFixDTOS = studentFixService.selectByExample(example);
+        Result result = new Result();
+        if(CollectionUtils.isEmpty(vdStudentFixDTOS)){
+            result.setCode(404);
+        }else{
+            result.setCode(200);
+        }
+        result.setData(vdStudentFixDTOS);
+        return JSON.toJSONString(result);
+    }
 
     @CrossOrigin
     @RequestMapping("/imgUpload")
