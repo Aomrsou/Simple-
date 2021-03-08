@@ -27,6 +27,11 @@ public class StudentFixServiceImpl implements StudentFixService {
     }
 
     @Override
+    public List<VdStudentFixDTO> selectInfo(VdStudentFixVO vo) {
+        return vdStudentFixMapper.selectInfo(vo);
+    }
+
+    @Override
     public int updateByPrimaryKeySelective(VdStudentFixVO vo) {
         return vdStudentFixMapper.updateByPrimaryKeySelective(vo);
     }

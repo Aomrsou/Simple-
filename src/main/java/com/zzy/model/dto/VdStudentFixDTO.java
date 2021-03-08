@@ -19,4 +19,6 @@ public class VdStudentFixDTO {
     private Integer process;
 
     private Integer display;
+
+    private String stuname;
 }

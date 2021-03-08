@@ -22,6 +22,8 @@ public interface VdStudentFixMapper {
 
     List<VdStudentFixDTO> selectByExample(VdStudentFixExample example);
 
+    List<VdStudentFixDTO> selectInfo(VdStudentFixVO vo);
+
     VdStudentFix selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") VdStudentFix record, @Param("example") VdStudentFixExample example);

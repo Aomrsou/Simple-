@@ -12,6 +12,9 @@ public interface StudentFixService {
 
     List<VdStudentFixDTO> selectByExample(VdStudentFixExample example);
 
+
+    List<VdStudentFixDTO> selectInfo(VdStudentFixVO vo);
+
     int updateByPrimaryKeySelective(VdStudentFixVO vo);
 
     int deleteByPrimaryKey(Integer id);

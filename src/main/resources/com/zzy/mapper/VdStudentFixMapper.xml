@@ -92,6 +92,27 @@
     from vd_student_fix
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectInfo"  parameterType="com.zzy.model.vo.VdStudentFixVO" resultType="com.zzy.model.dto.VdStudentFixDTO">
+    select
+    f.id as id,
+    f.stuff as stuff,
+    f. description as description,
+    f.cover as cover,
+    f.dorid as dorid,
+    f.stuid as stuid,
+    f.process as process,
+    f.display as display,
+    s.name as stuname
+    from vd_student_fix f, vd_stu s
+    where f.stuid = s.id
+    <if test="dorid != null and dorid != ''">
+      and f.dorid = #{dorid,jdbcType=INTEGER}
+    </if>
+    <if test="stuid != null and stuid != ''">
+      and f.stuid = #{stuid,jdbcType=INTEGER}
+    </if>
+    order by f.process asc
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from vd_student_fix
     where id = #{id,jdbcType=INTEGER}

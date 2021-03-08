@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/studentFix")
@@ -57,14 +59,7 @@ public class StudentFixController {
     @CrossOrigin
     @RequestMapping("/list")
     public String listFix(@RequestBody VdStudentFixVO vo){
-        VdStudentFixExample example = new VdStudentFixExample();
-        VdStudentFixExample.Criteria criteria = example.createCriteria();
-        if(vo.getDorid() != null){
-            criteria.andDoridEqualTo(vo.getDorid());
-        } else if (vo.getStuid() != null){
-            criteria.andStuidEqualTo(vo.getStuid());
-        }
-        List<VdStudentFixDTO> vdStudentFixDTOS = studentFixService.selectByExample(example);
+        List<VdStudentFixDTO> vdStudentFixDTOS = studentFixService.selectInfo(vo);
         Result result = new Result();
         if(CollectionUtils.isEmpty(vdStudentFixDTOS)){
             result.setCode(404);
