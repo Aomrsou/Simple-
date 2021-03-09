@@ -35,6 +35,16 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public int updatePass(StudentVO vo) {
+        return stuMapper.updatePass(vo);
+    }
+
+    @Override
+    public int updateCover(StudentVO vo) {
+        return stuMapper.updateCover(vo);
+    }
+
+    @Override
     public List<StudentDTO> checkStudent(StudentVO vo) {
         List<StudentDTO> studentDTOS = stuMapper.checkUser(vo.getName(), vo.getPassword());
         return studentDTOS;

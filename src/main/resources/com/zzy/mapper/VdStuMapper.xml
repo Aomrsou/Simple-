@@ -58,6 +58,16 @@
         </if>
         where id = #{id,jdbcType=INTEGER}
     </update>
+    <update id="updatePass" parameterType="com.zzy.model.vo.StudentVO">
+        update vd_stu
+        set password = #{password,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateCover" parameterType="com.zzy.model.vo.StudentVO">
+        update vd_stu
+        set cover = #{cover,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         <!--
           WARNING - @mbg.generated
@@ -86,6 +96,8 @@
         s.num,
         s.name,
         s.sex,
+        s.cover,
+        s.phone,
         c.name as cls,
         d.dornum as dor,
         CONCAT(b.`name`,b.`no`,'号楼') as buildName,
@@ -95,7 +107,7 @@
         where s.clsid = c.id
         and s.dorid = d.id
         and d.bid = b.id
-        and s.name = #{username, jdbcType=VARCHAR}
+        and s.num = #{username, jdbcType=VARCHAR}
         and s.password = #{password,jdbcType=VARCHAR}
     </select>
 
@@ -107,6 +119,8 @@
         s.num,
         s.name,
         s.sex,
+        s.cover,
+        s.phone,
         c.name as cls,
         d.dornum as dor,
         CONCAT(b.`name`,b.`no`,'号楼') as buildName,

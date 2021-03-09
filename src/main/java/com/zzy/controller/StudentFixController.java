@@ -18,9 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/studentFix")
@@ -50,6 +48,19 @@ public class StudentFixController {
         int update = studentFixService.updateByPrimaryKeySelective(vo);
         Result result = new Result();
         if(update == 1){
+            result.setCode(200);
+        }else{
+            result.setCode(404);
+        }
+        return JSON.toJSONString(result);
+    }
+
+    @CrossOrigin
+    @RequestMapping("/delete")
+    public String deleteFix(@RequestBody VdStudentFixVO vo){
+        int delete = studentFixService.deleteByPrimaryKey(vo.getId());
+        Result result = new Result();
+        if(delete == 1){
             result.setCode(200);
         }else{
             result.setCode(404);

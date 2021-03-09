@@ -13,5 +13,6 @@ public class StudentVO {
     private Integer cls;
     private Integer dor;
     private String buildName;
+    private String cover;
     private Integer flag;
 }

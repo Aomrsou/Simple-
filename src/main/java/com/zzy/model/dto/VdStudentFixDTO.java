@@ -21,4 +21,6 @@ public class VdStudentFixDTO {
     private Integer display;
 
     private String stuname;
+
+    private String buildName;
 }

@@ -14,4 +14,7 @@ public class StudentDTO {
     private String dor;
     private String flag;
     private String buildName;
+    private String cover;
+    private String phone;
+
 }

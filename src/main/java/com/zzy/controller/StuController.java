@@ -62,4 +62,22 @@ public class StuController {
         result.setCode(200);
         return JSON.toJSONString(result);
     }
+
+    @CrossOrigin
+    @RequestMapping("/updatePass")
+    public String updatePass(@RequestBody StudentVO vo) {
+        studentService.updatePass(vo);
+        Result result = new Result();
+        result.setCode(200);
+        return JSON.toJSONString(result);
+    }
+
+    @CrossOrigin
+    @RequestMapping("/updateCover")
+    public String updateCover(@RequestBody StudentVO vo) {
+        studentService.updateCover(vo);
+        Result result = new Result();
+        result.setCode(200);
+        return JSON.toJSONString(result);
+    }
 }
