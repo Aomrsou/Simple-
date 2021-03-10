@@ -26,7 +26,7 @@
         <!--  <table tableName="sf_pv_cost_hec_mapping">
               <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
           </table>-->
-        <table tableName="vd_student_fix" domainObjectName="VdStudentFix"></table>
+        <table tableName="vd_notice" domainObjectName="VdNotice"></table>
 <!--        <table tableName="vd_cls" domainObjectName="VdCls"></table>-->
 <!--        <table tableName="vd_dor" domainObjectName="VdDor"></table>-->
 <!--        <table tableName="vd_fix" domainObjectName="VdFix"></table>-->
