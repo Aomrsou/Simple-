@@ -72,6 +72,7 @@
     select
     id, title, content, noticetime
     from vd_notice
+    order By id desc
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
