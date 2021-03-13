@@ -16,6 +16,7 @@ public interface StudentService {
 
     int updatePass(StudentVO vo);
     int updateCover(StudentVO vo);
+    int updatePhone(StudentVO vo);
 
     List<StudentDTO> checkStudent(StudentVO vo);
 }

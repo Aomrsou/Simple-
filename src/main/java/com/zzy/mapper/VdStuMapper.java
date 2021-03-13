@@ -52,6 +52,7 @@ public interface VdStuMapper {
     int updatePass(StudentVO vo);
 
     int updateCover(StudentVO vo);
+    int updatePhone(StudentVO vo);
 
     List<StudentDTO> checkUser(String username, String password);
 

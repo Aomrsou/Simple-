@@ -41,9 +41,6 @@ public class StuController {
     public String add(@RequestBody StudentVO vo) {
         if (vo.getId() != null && vo.getId() != 0) {
             //update
-            if ("noAdjust".equals(vo.getBuildName())) {
-                vo.setDor(vo.getDid());
-            }
             studentService.update(vo);
         } else {
             //insert
@@ -67,6 +64,16 @@ public class StuController {
     @RequestMapping("/updatePass")
     public String updatePass(@RequestBody StudentVO vo) {
         studentService.updatePass(vo);
+        Result result = new Result();
+        result.setCode(200);
+        return JSON.toJSONString(result);
+    }
+
+
+    @CrossOrigin
+    @RequestMapping("/updatePhone")
+    public String updatePhone(@RequestBody StudentVO vo) {
+        studentService.updatePhone(vo);
         Result result = new Result();
         result.setCode(200);
         return JSON.toJSONString(result);

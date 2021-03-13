@@ -117,6 +117,9 @@
     <if test="process != null and process != ''">
       and f.process = #{process,jdbcType=INTEGER}
     </if>
+    <if test="display != null and display != ''">
+      and f.display = #{display,jdbcType=INTEGER}
+    </if>
     order by f.process asc
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">

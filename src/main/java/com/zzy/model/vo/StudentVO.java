@@ -11,8 +11,10 @@ public class StudentVO {
     private String password;
     private String sex;
     private Integer cls;
+    private Integer clsid;
     private Integer dor;
     private String buildName;
     private String cover;
+    private String phone;
     private Integer flag;
 }

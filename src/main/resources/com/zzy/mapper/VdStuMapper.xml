@@ -45,17 +45,29 @@
           This element was generated on Wed Jan 08 14:27:59 CST 2020.
         -->
         update vd_stu
-        set num = #{num,jdbcType=VARCHAR},
-        name = #{name,jdbcType=VARCHAR},
-        <if test="password != null and password != ''">
-            password = #{password,jdbcType=VARCHAR},
-        </if>
-        sex = #{sex,jdbcType=CHAR},
-        clsid = #{cls,jdbcType=INTEGER},
-        dorid = #{dor,jdbcType=INTEGER}
-        <if test="flag != null and flag != ''">
-            ,flag = #{flag,jdbcType=INTEGER}
-        </if>
+        <set>
+            <if test="num != null and num != ''">
+                num = #{num,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password,jdbcType=VARCHAR}
+            </if>
+            <if test="sex != null and sex != ''">
+                sex = #{sex,jdbcType=CHAR},
+            </if>
+            <if test="cls != null and cls != ''">
+                clsid = #{cls,jdbcType=INTEGER},
+            </if>
+            <if test="did != null and did != ''">
+                dorid = #{did,jdbcType=INTEGER},
+            </if>
+            <if test="flag != null and flag != ''">
+                flag = #{flag,jdbcType=INTEGER},
+            </if>
+        </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updatePass" parameterType="com.zzy.model.vo.StudentVO">
@@ -66,6 +78,11 @@
     <update id="updateCover" parameterType="com.zzy.model.vo.StudentVO">
         update vd_stu
         set cover = #{cover,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updatePhone" parameterType="com.zzy.model.vo.StudentVO">
+        update vd_stu
+        set phone = #{phone,jdbcType=VARCHAR}
         where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
